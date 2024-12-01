@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Config } from 'datatables.net';
 import { DataTableDirective } from 'angular-datatables';
 import { FetchAPIService } from '../fetch-api.service';
@@ -6,7 +6,7 @@ import { TestInterface } from '../test-interface';
 import { faFilter, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { Subject } from 'rxjs';
 import { ClickModalCenter } from '../click-modal-center/click-modal-center.component';
-
+// testststetsts
 @Component({
   selector: 'app-query-datatable',
   templateUrl: './ngdatatable.component.html',
@@ -150,6 +150,10 @@ export class QueryDatatable implements OnInit {
     this.CountyName = this.defaultString;
     this.ifCountySelected = true;
     this.doFilter();
+    const dtInstance = this.datatableElement.dtInstance;
+    dtInstance.then((dt: any) => {
+    dt.order([0, 'asc']).draw();
+  });
   }
 
   // fontawesome
