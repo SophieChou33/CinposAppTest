@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Config } from 'datatables.net';
 import { DataTableDirective } from 'angular-datatables';
 import { FetchAPIService } from '../fetch-api.service';
@@ -6,7 +6,7 @@ import { TestInterface } from '../test-interface';
 import { faFilter, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { Subject } from 'rxjs';
 import { ClickModalCenter } from '../click-modal-center/click-modal-center.component';
-
+// push to dev 12
 @Component({
   selector: 'app-query-datatable',
   templateUrl: './ngdatatable.component.html',
@@ -39,6 +39,18 @@ export class QueryDatatable implements OnInit {
   allowAllert: boolean = false;
   currentStationData: any = {};
   activeModal: boolean = false;
+  timeFormat(time:any){
+      const formatedTime = new Date(time).toLocaleString('zh-TW', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      });
+      return formatedTime;
+  }
   ngOnInit() {
     this.fetchAPIService.doFetchData(this.fetchUrl, this.CountyName);
     this.fetchAPIService.apiDataObservSub.subscribe(data => {
@@ -66,18 +78,8 @@ export class QueryDatatable implements OnInit {
           title: '最後監測時間',
           data: 'ObsTime.DateTime',
           render: (data) => {
-            const date = new Date(data).toLocaleString('zh-TW', {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit',
-              hour12: false,
-            });
-            return date;
-          },
-          className: 'text-align-left',
+            return this.timeFormat(data);  // 確保時間格式化是正確的
+          }
         }, { title: '目前天氣', data: 'WeatherElement.Weather' },
         {
           title: '查看明細',
@@ -103,9 +105,11 @@ export class QueryDatatable implements OnInit {
   clickModal(e: any) {
     this.activeModal = !this.activeModal;
     this.currentStationData=this.filterdApiData.filter((per)=>{return per.StationId==e.target.value})[0]
+    console.log(this.currentStationData);
     if(this.currentStationData){
-      this.clickModalCenterParams={ titleParam: `${this.currentStationData.StationName} - 詳細資訊`, contentParam: JSON.stringify(this.currentStationData), buttonParam: "OK", close: "Close" }
+      this.clickModalCenterParams={ titleParam: this.currentStationData.StationName, contentParam: JSON.stringify(this.currentStationData), buttonParam: "OK", close: "Close" }
     }
+    console.log(this.clickModalCenterParams);
   }
   activeModalChangeF(newActiveModalValue: boolean) {
     this.activeModal = newActiveModalValue;
@@ -150,6 +154,13 @@ export class QueryDatatable implements OnInit {
     this.CountyName = this.defaultString;
     this.ifCountySelected = true;
     this.doFilter();
+    const dtInstance = this.datatableElement.dtInstance;
+    dtInstance.then((dt: any) => {
+    dt.order([0, 'asc']).draw();
+  });
+  dtInstance.then((dt: any) => {
+    dt.page.len(25).draw();
+  });
   }
 
   // fontawesome
