@@ -1,19 +1,92 @@
 <ng-template #content let-modal>
-		<div class="modal-header">
-			<h4 class="modal-title">{{clickModalCenterParams.titleParam}}</h4>
-			<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click'); activeModalF()"></button>
+	<div class="modal-header mb-5">
+		<h4 class="modal-title">{{clickModalCenterParams.titleParam}}氣象站-詳細資訊</h4>
+		<button type="button" class="btn-close" aria-label="Close"
+			(click)="modal.dismiss('Cross click'); activeModalF()"></button>
+	</div>
+	<div class="modal-body">
+		<div class="row w-100 g-4 mb-5">
+			<div class="col-6">
+				<table class="detail-table w-100 mb-5">
+					<tr>
+						<th class="text-center" colspan="2">基本資訊</th>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">氣象站編號</td>
+						<td>{{parseParams.contentParam.StationId}}</td>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">氣象站名稱</td>
+						<td>{{parseParams.contentParam.StationName}}</td>
+					</tr>
+				</table>
+				<table class="detail-table w-100">
+					<tr>
+						<th class="text-center" colspan="2">位置資訊</th>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">所在縣市</td>
+						<td>{{parseParams.contentParam.GeoInfo.CountyName}}</td>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">所在鄉鎮市區</td>
+						<td>{{parseParams.contentParam.GeoInfo.TownName}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-6">
+				<app-googlemap></app-googlemap>
+			</div>
 		</div>
-		<div class="modal-body">
-			<!-- <p>{{clickModalCenterParams.contentParam}}</p> -->
-			 <div class="bg-warning">123</div>
-			 <div class="bg-danger">123</div>
-			 <div class="bg-success">123</div>
+		<div>
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" (click)="modal.close('Close click'); activeModalF()">{{clickModalCenterParams.close}}</button>
-		</div>
-</ng-template>
 
+				<table class="detail-table w-100 mb-5">
+					<tr>
+						<th class="text-center" colspan="6">天氣資訊</th>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">天氣</td>
+						<td>{{parseParams.contentParam.WeatherElement.Weather}}</td>
+						<td class="second-th w-15 min-cell-width">風向</td>
+						<td>{{parseParams.contentParam.WeatherElement.WindDirection}}</td>
+						<td class="second-th w-15 min-cell-width">風速</td>
+						<td>{{parseParams.contentParam.WeatherElement.WindSpeed}}</td>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">氣溫</td>
+						<td>{{parseParams.contentParam.WeatherElement.AirTemperature}}</td>
+						<td class="second-th w-15 min-cell-width">氣壓</td>
+						<td>{{parseParams.contentParam.WeatherElement.AirPressure}}</td>
+						<td class="second-th w-15 min-cell-width"></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<table class="detail-table w-100">
+					<tr>
+						<th class="text-center" colspan="2">今日最高溫</th>
+						<th class="text-center" colspan="2">今日最低溫</th>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">溫度</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyHigh.TemperatureInfo.AirTemperature}}</td>
+						<td class="second-th w-15 min-cell-width">溫度</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyLow.TemperatureInfo.AirTemperature}}</td>
+					</tr>
+					<tr>
+						<td class="second-th w-15 min-cell-width">發生時間</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyHigh.TemperatureInfo.Occurred_at.DateTime}}</td>
+						<td class="second-th w-15 min-cell-width">發生時間</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyLow.TemperatureInfo.Occurred_at.DateTime}}</td>
+					</tr>
+				</table>
+	</div>
+	<div class="modal-footer mt-5">
+		<button type="button" class="btn btn-secondary"
+			(click)="modal.close('Close click'); activeModalF()">{{clickModalCenterParams.close}}</button>
+	</div>
+</ng-template>
 
 <button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content); activeModalT()">
 	{{clickModalCenterParams.buttonParam}}

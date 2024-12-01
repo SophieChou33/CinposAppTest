@@ -6,7 +6,7 @@ body {
   --prim-mainDark: #0f202e;
   --prim-main01: #3693de;
   --prim-main02: #91b1cb;
-  --prim-mainLight: #f1f9ff;
+  --prim-mainLight: #e7eef3;
   --sec-mainDark: #392619;
   --sec-main01: #f0a75f;
   --sec-main02: #ffe4ce;
@@ -73,4 +73,7 @@ root>* {
 }
 .cursor-pointer{
   cursor: pointer;
+}
+.w-15{
+  width: 15%;
 }

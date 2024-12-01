@@ -1,6 +1,5 @@
 <h1 class="px-3 mb-5 text-center testtt">氣象站清單</h1>
-<input type="text" class="hiddenCol" value="test" (change)="clickModal($event)"/>
-{{activeModal}}
+<input type="hidden" class="hiddenCol" value="test" (change)="clickModal($event)"/>
 
 <click-modal-center [clickModalCenterParams]="clickModalCenterParams" [activeModal]="activeModal" (activeModalChange)="activeModalChangeF($event)"></click-modal-center>
 

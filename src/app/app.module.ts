@@ -6,6 +6,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { DataTablesModule } from "angular-datatables";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 import { AppComponent } from './app.component';
 import { AppHeader } from './app-header/app-header.component';
@@ -13,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClickModalCenter } from './click-modal-center/click-modal-center.component';
 import { ClickModalScroll } from './click-modal-scroll/click-modal-scroll.component';
 import { QueryDatatable } from './qureyDatatable/qureyDatatable.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
 
 @NgModule({
   providers: [
@@ -27,7 +29,8 @@ import { QueryDatatable } from './qureyDatatable/qureyDatatable.component';
     ]),
     NgbModule,
     DataTablesModule, FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule,
   ],
   declarations: [
     AppComponent,
@@ -35,6 +38,7 @@ import { QueryDatatable } from './qureyDatatable/qureyDatatable.component';
     ClickModalCenter,
     ClickModalScroll,
     QueryDatatable,
+    GooglemapComponent
   ],
   bootstrap: [
     AppComponent

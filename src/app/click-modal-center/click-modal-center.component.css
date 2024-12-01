@@ -1,0 +1,29 @@
+.detail-table{
+    border: 1px solid #fff;
+    border-radius: 10px;
+    & .table-cell-cosStyle{
+        padding: 0.4rem 0.8rem;
+    }
+    & tr{
+        border-bottom: 1px solid var(--prim-mainLight);
+        & th{
+            color: white;
+            background-color: var(--prim-main01);
+            padding: 0.4rem 0.8rem;
+        }
+        & td{
+            border-bottom: 1px solid var(--prim-mainLight);
+            padding: 0.4rem 0.8rem;
+        }
+    }
+    & .second-th{
+        border-bottom: 1px solid var(--prim-mainLight);
+        padding: 0.4rem 0.8rem;
+    }
+}
+.min-cell-width{
+    min-width: 130px;
+}
+.w-60{
+    width: 60%;
+}
