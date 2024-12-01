@@ -6,7 +6,7 @@ import { TestInterface } from '../test-interface';
 import { faFilter, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { Subject } from 'rxjs';
 import { ClickModalCenter } from '../click-modal-center/click-modal-center.component';
-// push to dev
+// push to dev 12
 @Component({
   selector: 'app-query-datatable',
   templateUrl: './ngdatatable.component.html',
