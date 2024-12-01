@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  /* 全域樣式-變數 */
+  --basic-gray: #616161;
+  --basic-lGray: #afafaf;
+  --prim-mainDark: #0f202e;
+  --prim-main01: #3693de;
+  --prim-main02: #91b1cb;
+  --prim-mainLight: #f1f9ff;
+  --sec-mainDark: #392619;
+  --sec-main01: #f0a75f;
+  --sec-main02: #ffe4ce;
+  --other-danger: #ff7b5e;
+  --other-warn: #ffe680;
+  --other-success: #38a965;
+}
+root>* {
+  /* 文字規範 */
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--sec-mainDark);
+  letter-spacing: 0.15rem;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  & a,
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
+}
+.text-sec-mainDark {
+  color: var(--sec-mainDark);
+}
+.text-basic-lGray{
+  color: var(--basic-lGray);
+}
+.text-basic-gray{
+  color: var(--basic-gray);
+}
+.mp-0 {
+  margin: 0;
+  padding: 0;
+}
+.btn {
+  border: 0;
+}
+.btn-prim-main01,
+.btn-prim-main01:visited {
+  color: white;
+  background-color: var(--prim-main01);
+  &:hover,
+  &.actived,
+  &.btn-prim-main01:active,
+  &.btn-prim-main01.active:visited {
+    color: var(--basic-gray);
+    background-color: transparent;
+  }
+}
+.btn-noBg-darkT, .btn-noBg-darkT:visited{
+  color: var(--basic-lGray);
+  background-color: transparent;
+  &:hover,
+  &.actived,
+  &.btn-prim-main01:active,
+  &.btn-prim-main01.active:visited {
+    color: white;
+    background-color: var(--basic-lGray);
+  }
+}
+.spac-1{
+  letter-spacing: 0.15rem;  
+}
+.cursor-pointer{
+  cursor: pointer;
+}

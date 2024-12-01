@@ -1,0 +1,16 @@
+<ng-template #longContent let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">{{clickModalScrollParams.titleParam}}</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		{{clickModalScrollParams.contentParam}}
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">{{clickModalScrollParams.close}}</button>
+	</div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 me-2" (click)="openScrollableContent(longContent)">
+	{{clickModalScrollParams.buttonParam}}
+</button>

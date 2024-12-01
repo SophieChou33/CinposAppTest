@@ -1,0 +1,8 @@
+.clear-button:hover{
+    color: var(--basic-gray);
+    transform: scale(1.07) translateX(2px);
+    transition: .3s;
+}
+.table.dataTable td.dt-type-date {
+    text-align: left !important;
+}
