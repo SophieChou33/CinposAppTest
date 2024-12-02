@@ -1,4 +1,4 @@
-import { Component, inject, TemplateRef, ViewEncapsulation, Input } from '@angular/core';
+import { Component, inject, ViewEncapsulation, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,10 +10,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ClickModalScroll {
 	private modalService = inject(NgbModal);
 	@Input() clickModalScrollParams:{titleParam: string, contentParam: string, buttonParam: string, close: string} = {
-		titleParam: '預設 title (scroll modal)',
-		contentParam: `'預設 content (scroll modal)'`,
-		buttonParam: '預設 button (scroll modal)',
-		close: '預設 close button (scroll modal)'
+		titleParam: '',
+		contentParam: '',
+		buttonParam: '',
+		close: ''
 	}
 
 	openScrollableContent(longContent: any) {

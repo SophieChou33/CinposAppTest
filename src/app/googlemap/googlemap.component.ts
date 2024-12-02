@@ -1,27 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-googlemap',
   templateUrl: './googlemap.component.html',
-  styleUrls: ['./googlemap.component.css']
 })
 export class GooglemapComponent implements OnInit {
+  @Input() locationObj: { lat: number; lng: number } = { lat: 0, lng: 0 };
+  @Input() stationName: string = "";
+  markerName:string = this.stationName+"氣象站";
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['stationName']) {
+      this.markerName = this.stationName + "氣象站";
+    }
   }
-  display : any;
-  center: google.maps.LatLngLiteral = {lat: 24.7, lng: 121};
-  zoom = 8;
 
-  moveMap(event: google.maps.MapMouseEvent) {
-    if(event.latLng!= null)
-    this.center = (event.latLng.toJSON());
+  display: any;
+  center: google.maps.LatLngLiteral = {
+    lat: this.locationObj.lat,
+    lng: this.locationObj.lng,
+  };
+  zoom = 8;
+  map: google.maps.Map | undefined;
+  ngOnInit(): void {
+    this.center = { lat: this.locationObj.lat, lng: this.locationObj.lng };
+    console.log(this.center);
+
+    setTimeout(()=>{
+      if (this.map) {
+        this.map.setZoom(12);
+      }
+    }, 100)
+  }
+  mapOk(map: google.maps.Map): void {
+    this.map = map;
+    console.log(map);
+    map.setZoom(this.zoom);
+  }
+
+  clickMap(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.center = event.latLng.toJSON();
+    this.markerName = "經度： "+this.locationObj.lat+"\r緯度： "+this.locationObj.lng
+    console.log(this.center);
   }
 
   move(event: google.maps.MapMouseEvent) {
-    if(event.latLng != null)
-    this.display = event.latLng.toJSON();
+    if (event.latLng != null) this.display = event.latLng.toJSON();
   }
 }

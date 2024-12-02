@@ -1,5 +1,5 @@
 <ng-template #content let-modal>
-	<div class="modal-header mb-5">
+	<div class="modal-header mb-3">
 		<h4 class="modal-title">{{clickModalCenterParams.titleParam}}氣象站-詳細資訊</h4>
 		<button type="button" class="btn-close" aria-label="Close"
 			(click)="modal.dismiss('Cross click'); activeModalF()"></button>
@@ -35,7 +35,7 @@
 				</table>
 			</div>
 			<div class="col-6">
-				<app-googlemap></app-googlemap>
+				<app-googlemap [locationObj]="locationObj" [stationName]="parseParams.titleParam"></app-googlemap>
 			</div>
 		</div>
 		<div>
@@ -82,12 +82,12 @@
 					</tr>
 				</table>
 	</div>
-	<div class="modal-footer mt-5">
+	<div class="modal-footer mt-5 justify-content-between">
+		<button class="btn btn-outline-primary mb-2 me-2" (click)="modal.close('Close click'); activeModalF()">
+			{{clickModalCenterParams.buttonParam}}
+		</button>
 		<button type="button" class="btn btn-secondary"
 			(click)="modal.close('Close click'); activeModalF()">{{clickModalCenterParams.close}}</button>
 	</div>
 </ng-template>
 
-<button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content); activeModalT()">
-	{{clickModalCenterParams.buttonParam}}
-</button>

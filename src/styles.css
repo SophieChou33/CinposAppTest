@@ -14,7 +14,7 @@ body {
   --other-warn: #ffe680;
   --other-success: #38a965;
 }
-root>* {
+* {
   /* 文字規範 */
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
@@ -23,19 +23,23 @@ root>* {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  & a,
+  a,
   a:hover,
   a:active {
     text-decoration: none;
   }
 }
+svg *, .btn *, button *, path *, .fa-icon *, fa-icon *{
+  color: unset;
+  background-color: unset;
+}
 .text-sec-mainDark {
   color: var(--sec-mainDark);
 }
-.text-basic-lGray{
+.text-basic-lGray {
   color: var(--basic-lGray);
 }
-.text-basic-gray{
+.text-basic-gray {
   color: var(--basic-gray);
 }
 .mp-0 {
@@ -57,7 +61,8 @@ root>* {
     background-color: transparent;
   }
 }
-.btn-noBg-darkT, .btn-noBg-darkT:visited{
+.btn-noBg-darkT,
+.btn-noBg-darkT:visited {
   color: var(--basic-lGray);
   background-color: transparent;
   &:hover,
@@ -68,12 +73,18 @@ root>* {
     background-color: var(--basic-lGray);
   }
 }
-.spac-1{
-  letter-spacing: 0.15rem;  
+.spac-1 {
+  letter-spacing: 0.15rem;
 }
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
-.w-15{
+.w-15 {
   width: 15%;
+}
+.dt-table-spac{
+  letter-spacing: 0.1rem;
+}
+.dt-text-left{
+  text-align: left !important;
 }

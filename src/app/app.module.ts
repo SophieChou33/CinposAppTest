@@ -1,4 +1,4 @@
-import { NgModule, ApplicationConfig } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { AppHeader } from './app-header/app-header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClickModalCenter } from './click-modal-center/click-modal-center.component';
-import { ClickModalScroll } from './click-modal-scroll/click-modal-scroll.component';
 import { QueryDatatable } from './qureyDatatable/qureyDatatable.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 
@@ -36,7 +35,6 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
     AppComponent,
     AppHeader,
     ClickModalCenter,
-    ClickModalScroll,
     QueryDatatable,
     GooglemapComponent
   ],
@@ -45,10 +43,3 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
   ]
 })
 export class AppModule { }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

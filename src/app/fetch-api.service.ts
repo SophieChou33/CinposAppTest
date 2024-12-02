@@ -23,5 +23,4 @@ export class FetchAPIService{
       console.log("do fetch");
     });
   }
-
 }

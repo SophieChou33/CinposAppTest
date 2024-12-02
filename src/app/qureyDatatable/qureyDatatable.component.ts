@@ -6,10 +6,9 @@ import { TestInterface } from '../test-interface';
 import { faFilter, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { Subject } from 'rxjs';
 import { ClickModalCenter } from '../click-modal-center/click-modal-center.component';
-// push to dev 12
 @Component({
   selector: 'app-query-datatable',
-  templateUrl: './ngdatatable.component.html',
+  templateUrl: './queryDatatable.component.html',
   styleUrl: './qureyDatatable.component.css'
 })
 export class QueryDatatable implements OnInit {
@@ -70,20 +69,20 @@ export class QueryDatatable implements OnInit {
       pageLength: 25,
       destroy: true,
       columns: [
-        { title: '編號', data: 'StationId' },
-        { title: '名稱', data: 'StationName' },
-        { title: '縣市', data: 'GeoInfo.CountyName' },
-        { title: '鄉鎮市區', data: 'GeoInfo.TownName' },
+        { title: '編號', data: 'StationId', className: 'dt-table-spac' },
+        { title: '名稱', data: 'StationName', className: 'dt-table-spac' },
+        { title: '縣市', data: 'GeoInfo.CountyName', className: 'dt-table-spac' },
+        { title: '鄉鎮市區', data: 'GeoInfo.TownName', className: 'dt-table-spac' },
         {
           title: '最後監測時間',
-          data: 'ObsTime.DateTime',
+          data: 'ObsTime.DateTime', className: 'dt-table-spac dt-text-left',
           render: (data) => {
-            return this.timeFormat(data);  // 確保時間格式化是正確的
+            return this.timeFormat(data);
           }
         }, { title: '目前天氣', data: 'WeatherElement.Weather' },
         {
           title: '查看明細',
-          data: 'StationId',
+          data: 'StationId', className: 'dt-table-spac',
           render: (data: any, type: string, row: any) => {
             return `<button class="btn btn-primary" id="btnDetail-${row.StationId}" onclick="console.log('${data}'); 
       const input = document.querySelector('.hiddenCol');
@@ -96,18 +95,13 @@ export class QueryDatatable implements OnInit {
     this.dtTrigger.next(new Subject<any>());
   }
 
-  clickModalCenterParams= {
-    titleParam: '',
-    contentParam: '',
-    buttonParam: '',
-    close: ''
-  }
+  clickModalCenterParams= {}
   clickModal(e: any) {
     this.activeModal = !this.activeModal;
     this.currentStationData=this.filterdApiData.filter((per)=>{return per.StationId==e.target.value})[0]
     console.log(this.currentStationData);
     if(this.currentStationData){
-      this.clickModalCenterParams={ titleParam: this.currentStationData.StationName, contentParam: JSON.stringify(this.currentStationData), buttonParam: "OK", close: "Close" }
+      this.clickModalCenterParams={ titleParam: this.currentStationData.StationName, contentParam: this.currentStationData, buttonParam: "OK", close: "Close" }
     }
     console.log(this.clickModalCenterParams);
   }
