@@ -5,7 +5,6 @@ import { FetchAPIService } from '../fetch-api.service';
 import { TestInterface } from '../test-interface';
 import { faFilter, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { Subject } from 'rxjs';
-import { ClickModalCenter } from '../click-modal-center/click-modal-center.component';
 @Component({
   selector: 'app-query-datatable',
   templateUrl: './queryDatatable.component.html',
@@ -14,13 +13,11 @@ import { ClickModalCenter } from '../click-modal-center/click-modal-center.compo
 export class QueryDatatable implements OnInit {
   @ViewChild(DataTableDirective, { static: false })
   datatableElement: any = DataTableDirective;
-  @ViewChild(ClickModalCenter) ClickModalCenter!: ClickModalCenter;
 
   dtOptions: Config = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
   fetchUrl: string = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001?Authorization=CWA-3E4E5528-F7D0-4868-BDD0-C0B3F8311F95";
-
   apiData: TestInterface[] = [];
   filterdApiData: TestInterface[] = [];
 
@@ -51,6 +48,7 @@ export class QueryDatatable implements OnInit {
       return formatedTime;
   }
   ngOnInit() {
+    
     this.fetchAPIService.doFetchData(this.fetchUrl, this.CountyName);
     this.fetchAPIService.apiDataObservSub.subscribe(data => {
       this.apiData = data;
@@ -63,6 +61,7 @@ export class QueryDatatable implements OnInit {
       this.OriginCountyList = data.countyArr;
       this.filteredCountyList = data.countyArr;
     })
+    
 
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -84,7 +83,7 @@ export class QueryDatatable implements OnInit {
           title: '查看明細',
           data: 'StationId', className: 'dt-table-spac',
           render: (data: any, type: string, row: any) => {
-            return `<button class="btn btn-primary" id="btnDetail-${row.StationId}" onclick="console.log('${data}'); 
+            return `<button class="btn btn-prim-main01" id="btnDetail-${row.StationId}" onclick=" 
       const input = document.querySelector('.hiddenCol');
       input.value = '${row.StationId}';
       input.dispatchEvent(new Event('change'));">查看明细</button>`;
@@ -99,11 +98,9 @@ export class QueryDatatable implements OnInit {
   clickModal(e: any) {
     this.activeModal = !this.activeModal;
     this.currentStationData=this.filterdApiData.filter((per)=>{return per.StationId==e.target.value})[0]
-    console.log(this.currentStationData);
     if(this.currentStationData){
       this.clickModalCenterParams={ titleParam: this.currentStationData.StationName, contentParam: this.currentStationData, buttonParam: "OK", close: "Close" }
     }
-    console.log(this.clickModalCenterParams);
   }
   activeModalChangeF(newActiveModalValue: boolean) {
     this.activeModal = newActiveModalValue;

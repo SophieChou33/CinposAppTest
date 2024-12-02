@@ -1,0 +1,3 @@
+.cell-padding{
+    padding: calc(var(--bs-gutter-x)* .5);
+}

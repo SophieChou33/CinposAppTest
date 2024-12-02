@@ -26,7 +26,6 @@ export class GooglemapComponent implements OnInit {
   map: google.maps.Map | undefined;
   ngOnInit(): void {
     this.center = { lat: this.locationObj.lat, lng: this.locationObj.lng };
-    console.log(this.center);
 
     setTimeout(()=>{
       if (this.map) {
@@ -36,14 +35,12 @@ export class GooglemapComponent implements OnInit {
   }
   mapOk(map: google.maps.Map): void {
     this.map = map;
-    console.log(map);
     map.setZoom(this.zoom);
   }
 
   clickMap(event: google.maps.MapMouseEvent) {
     if (event.latLng != null) this.center = event.latLng.toJSON();
     this.markerName = "經度： "+this.locationObj.lat+"\r緯度： "+this.locationObj.lng
-    console.log(this.center);
   }
 
   move(event: google.maps.MapMouseEvent) {

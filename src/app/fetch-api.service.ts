@@ -14,7 +14,7 @@ export class FetchAPIService{
   fetchData(url: string): Observable<any> {
     return this.http.get(url);
   }
-  doFetchData(url: string, CountyName:string) {
+  doFetchData(url: string, CountyName?:string) {
     this.fetchData(url).subscribe(res => {
       this.apiDataObservSub.next(res.records.Station);
       const countyArr=[...new Set(res.records.Station.map((county:any)=>{return county.GeoInfo.CountyName}))]

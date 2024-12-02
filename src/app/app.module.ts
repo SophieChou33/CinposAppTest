@@ -14,6 +14,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClickModalCenter } from './click-modal-center/click-modal-center.component';
 import { QueryDatatable } from './qureyDatatable/qureyDatatable.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HomepannelComponent } from './homepage/homeparts/homepannel.component';
+import { HometableComponent } from './homepage/homeparts/hometable.component';
 
 @NgModule({
   providers: [
@@ -23,7 +26,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: AppHeader },
+      { path: '', component: HomepageComponent },
       { path: 'queryPage', component: QueryDatatable},
     ]),
     NgbModule,
@@ -36,7 +39,8 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
     AppHeader,
     ClickModalCenter,
     QueryDatatable,
-    GooglemapComponent
+    GooglemapComponent,
+    HomepageComponent, HomepannelComponent, HometableComponent,
   ],
   bootstrap: [
     AppComponent
