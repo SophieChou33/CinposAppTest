@@ -1,1 +1,26 @@
-table
+
+<div class="row m-1 mb-5">
+    <div class="col-4 col-lg-2 bg-success p-5 d-flex align-items-center justify-content-center"><fa-icon class="text-white" [icon]="faMapMarkerAlt" size="5x">faMapMarkerAlt</fa-icon></div>
+    <div class="col-10">
+        <div class="border-bottom border-2 p-2">
+            <h4>氣象站總數</h4>
+        </div>
+        <div class="p-2 d-flex align-items-end">
+            <h1>{{stationCount}}</h1><h3 class="ms-1 pb-1">座</h3>
+        </div>
+    </div>
+</div>
+<table class="table table-striped text-center">
+    <thead class="table-primary">
+      <tr>
+        <th class="w-50" scope="col">縣市</th>
+        <th class="w-50" scope="col">總數</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let perObj of calculatedObj">
+        <td>{{perObj.CountyName}}</td>
+        <td>{{perObj.count}}</td>
+      </tr>
+    </tbody>
+  </table>

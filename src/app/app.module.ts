@@ -17,6 +17,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomepannelComponent } from './homepage/homeparts/homepannel.component';
 import { HometableComponent } from './homepage/homeparts/hometable.component';
+import { WeatherErrorPipe } from './minus99check.pipe';
 
 @NgModule({
   providers: [
@@ -41,6 +42,7 @@ import { HometableComponent } from './homepage/homeparts/hometable.component';
     QueryDatatable,
     GooglemapComponent,
     HomepageComponent, HomepannelComponent, HometableComponent,
+    WeatherErrorPipe,
   ],
   bootstrap: [
     AppComponent

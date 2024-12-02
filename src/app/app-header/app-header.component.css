@@ -2,3 +2,12 @@
 div a{
     display: inline-block;
 }
+.header-div{
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.377);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 10px 10px 10px #1a1a1a2a;
+    width: 100vw;
+}

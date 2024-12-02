@@ -1,16 +1,18 @@
-<div class="row justify-content-between px-5 py-3">
+<div class="row justify-content-between px-5 py-3 header-div">
   <div class="col-auto d-flex justify-content-center align-items-center gap-3">
+        <fa-icon type="button" [icon]="faBars" size="2x" class="me-4 d-inline-block">faBars</fa-icon>
     <a [routerLink]="['/']">
-      <h1 class="text-sec-mainDark">氣象站資料查詢</h1>
+      <h2 class="spac-1 d-inline-block text-main-dark">Ze <span class="h2 text-prim-main01">Weather</span>
+         Channel</h2>
     </a>
   </div>
 
   <div class="col-auto d-flex justify-content-center align-items-center gap-3">
     <a
       (click)="navClick('home')"
-      [ngClass]="{ active: activeNav == 'home' }"
+      [ngClass]="{ active: activeNav != 'weather' }"
       [routerLink]="['/']"
-      class="col-auto btn btn-prim-main01"
+      class="col-auto btn btn-prim-main01 active"
       >首頁</a
     >
     <a

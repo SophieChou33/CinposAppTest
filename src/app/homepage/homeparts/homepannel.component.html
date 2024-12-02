@@ -1,10 +1,11 @@
-<div class="row">
-    <div class="col-3 border-right border-2 cell-padding">
-        <div class="cell-padding border h-100 d-flex align-items-center justify-content-center text-white" [ngClass]="'bg-' + mainColor">
-            <fa-icon [icon]="faCloudSun" class="align-center" size="3x">faCloudSun</fa-icon>
+<div class="row flex-column flex-lg-row">
+    <div class="col col-lg-3 border-right border-2 cell-padding">
+        <div class="cell-padding border h-100 d-flex align-items-center justify-content-lg-center justify-content-start text-white"
+            [ngClass]="'bg-' + mainColor">
+            <fa-icon [icon]="faCloudSun" class="text-white" size="3x">faCloudSun</fa-icon>
         </div>
     </div>
-    <div class="col-9">
+    <div class="col col-lg-9">
         <div class="row border-bottom border-2 cell-padding">
             <div class="col">
                 <h5>{{title}}</h5>
@@ -12,12 +13,19 @@
         </div>
         <div class="row">
             <div class="col-4 cell-padding border-right">
-                <div class="border-bottom border-2 cell-padding">{{title02}}</div>
-                <div class="cell-padding"><h1>4</h1></div>
+                <div *ngIf="title02!=''" class="border-bottom border-2 cell-padding">{{title02}}</div>
+                <div class="cell-padding">
+                    <div class="d-flex align-items-end"><h1>{{value}}</h1><h4 *ngIf="title.includes('溫度')" class="pb-1 ms-1">℃</h4></div>
+                </div>
             </div>
             <div class="col-8 cell-padding">
-                <div class="border-bottom cell-padding">監測縣市： </div>
-                <div class="cell-padding">監測時間：<br>123</div>
+                <div *ngIf="county!=''" class="border-bottom border-2 cell-padding">
+                    縣市： {{county}}
+                </div>
+                <div *ngIf="dateTime!=''" class="cell-padding">
+                    監測時間：<br>{{dateTime}}
+                    <br>
+                </div>
             </div>
         </div>
     </div>

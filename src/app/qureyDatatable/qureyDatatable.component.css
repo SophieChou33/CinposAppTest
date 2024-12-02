@@ -3,3 +3,10 @@
     transform: scale(1.07) translateX(2px);
     transition: .3s;
 }
+.mobile-filter-btn{
+    width: 40px;
+    height: 40px;
+}
+.table-outer{
+    overflow: auto;
+}

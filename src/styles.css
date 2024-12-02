@@ -16,10 +16,14 @@ body {
   --other-warn: #ffe680;
   --other-success: #38a965;
 }
+.table-primary{
+  --bs-table-bg: #3693de;
+  --bs-table-color: white;
+}
 * {
   /* 文字規範 */
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--sec-mainDark);
   letter-spacing: 0.1rem;
   box-sizing: border-box;
@@ -32,8 +36,14 @@ body {
   }
 }
 svg *, .btn *, button *, path *, .fa-icon *, fa-icon *{
-  color: white;
+  color: unset;
   background-color: unset;
+}
+.text-prim-main01{
+  color: var(--prim-main01)
+}
+.text-main-dark{
+  color: var(--prim-mainDark)
 }
 .text-sec-mainDark {
   color: var(--sec-mainDark);

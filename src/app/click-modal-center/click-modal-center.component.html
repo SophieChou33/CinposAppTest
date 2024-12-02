@@ -26,11 +26,11 @@
 					</tr>
 					<tr>
 						<td class="second-th w-15 min-cell-width">所在縣市</td>
-						<td>{{parseParams.contentParam.GeoInfo.CountyName}}</td>
+						<td>{{parseParams.contentParam.GeoInfo.CountyName | minus99check}}</td>
 					</tr>
 					<tr>
 						<td class="second-th w-15 min-cell-width">所在鄉鎮市區</td>
-						<td>{{parseParams.contentParam.GeoInfo.TownName}}</td>
+						<td>{{parseParams.contentParam.GeoInfo.TownName | minus99check}}</td>
 					</tr>
 				</table>
 			</div>
@@ -47,17 +47,17 @@
 					</tr>
 					<tr>
 						<td class="second-th w-15 min-cell-width">天氣</td>
-						<td>{{parseParams.contentParam.WeatherElement.Weather}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.Weather | minus99check}}</td>
 						<td class="second-th w-15 min-cell-width">風向</td>
-						<td>{{parseParams.contentParam.WeatherElement.WindDirection}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.WindDirection | minus99check}}</td>
 						<td class="second-th w-15 min-cell-width">風速</td>
-						<td>{{parseParams.contentParam.WeatherElement.WindSpeed}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.WindSpeed | minus99check}}</td>
 					</tr>
 					<tr>
 						<td class="second-th w-15 min-cell-width">氣溫</td>
-						<td>{{parseParams.contentParam.WeatherElement.AirTemperature}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.AirTemperature | minus99check}}</td>
 						<td class="second-th w-15 min-cell-width">氣壓</td>
-						<td>{{parseParams.contentParam.WeatherElement.AirPressure}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.AirPressure | minus99check}}</td>
 						<td class="second-th w-15 min-cell-width"></td>
 						<td></td>
 					</tr>
@@ -70,15 +70,15 @@
 					</tr>
 					<tr>
 						<td class="second-th w-15 min-cell-width">溫度</td>
-						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyHigh.TemperatureInfo.AirTemperature}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyHigh.TemperatureInfo.AirTemperature | minus99check}}</td>
 						<td class="second-th w-15 min-cell-width">溫度</td>
-						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyLow.TemperatureInfo.AirTemperature}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyLow.TemperatureInfo.AirTemperature | minus99check}}</td>
 					</tr>
 					<tr>
 						<td class="second-th w-15 min-cell-width">發生時間</td>
-						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyHigh.TemperatureInfo.Occurred_at.DateTime}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyHigh.TemperatureInfo.Occurred_at.DateTime | minus99check}}</td>
 						<td class="second-th w-15 min-cell-width">發生時間</td>
-						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyLow.TemperatureInfo.Occurred_at.DateTime}}</td>
+						<td>{{parseParams.contentParam.WeatherElement.DailyExtreme.DailyLow.TemperatureInfo.Occurred_at.DateTime | minus99check}}</td>
 					</tr>
 				</table>
 	</div>
