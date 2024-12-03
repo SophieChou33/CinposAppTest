@@ -1,0 +1,63 @@
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header offcanvas-bg row mp-0">
+    <div class="col-3 col-lg-1 bg-prim-main01 h-100 mp-0"></div>
+    <div class="col d-flex mp-0 justify-content-between mp-0 ps-2">
+      <h4 class="offcanvas-title text-prim-mainDark text-bold">
+        Ze<br />Weather<br />Channel
+      </h4>
+      <button
+        type="button"
+        class="btn-close me-3 mt-2"
+        aria-label="Close"
+        (click)="offcanvas.dismiss('Cross click')"
+      ></button>
+    </div>
+  </div>
+  <div class="offcanvas-body">
+    <div
+      class="col-auto mt-5 d-flex flex-column justify-content-center align-items-center gap-3 px-3"
+    >
+      <a
+        (click)="navClick('home');offcanvas.dismiss('Cross click')"
+        [ngClass]="{ active: activeNav != 'weather' }"
+        [routerLink]="['/']"
+        class="row active h4 canvas-list-style py-2 w-100"
+      >
+        <div class="col-2 d-flex align-items-center justify-content-center">
+          <fa-icon
+            class="text-sec-main01"
+            [icon]="faHouseChimneyWindow"
+            size="xl"
+            >faHouseChimneyWindow</fa-icon
+          >
+        </div>
+        <div class="col"><h5 class="col mp-0 offcanvas-nav py-1">首頁</h5></div>
+      </a>
+
+      <a
+        (click)="navClick('weather');offcanvas.dismiss('Cross click')"
+        [ngClass]="{ active: activeNav != 'weather' }"
+        [routerLink]="['/queryPage']"
+        class="row active h4 canvas-list-style py-2 w-100"
+      >
+        <div class="col-2 d-flex align-items-center justify-content-center">
+          <fa-icon class="text-sec-main01" [icon]="faMapMarkerAlt" size="xl"
+            >faMapMarkerAlt</fa-icon
+          >
+        </div>
+        <div class="col">
+          <h5 class="col mp-0 offcanvas-nav py-1">氣象站查詢</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+</ng-template>
+
+<fa-icon
+  type="button"
+  [icon]="faBars"
+  size="2x"
+  class="mb-1 me-4 d-inline-block"
+  (click)="openNoKeyboard(content)"
+  >faBars</fa-icon
+>

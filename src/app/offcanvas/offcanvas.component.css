@@ -1,0 +1,11 @@
+.offcanvas-bg{
+    background-color: transparent;
+    padding: 0;
+}
+.offcanvas-header .btn-close{
+    margin: 0;
+    --bs-btn-close-focus-shadow: 0;
+}
+.offcanvas-nav{
+    border-bottom: 0.15rem solid var(--prim-main04);
+}

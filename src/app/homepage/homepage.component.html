@@ -1,25 +1,79 @@
-<div class="container my-5">
-    <h1>天氣概況</h1>
-    <hr>
+<div class="container my-4">
+  <h1>天氣概況</h1>
+  <hr />
 </div>
 <div class="container mb-5">
-    <div class="row">
-        <div class="col-12 col-lg-6 p-4 d-flex flex-column gap-3">
-            <app-homepannel mainColor="prim-main01" title="當前平均溫度" title02="" [value]="averageTemp" county="" dateTime="" (click)="observeConsole()"></app-homepannel>
-            <app-homepannel mainColor="prim-main02" title="當前最高溫度" title02="溫度" [value]="highestTemp.temp" [county]="highestTemp.county" [dateTime]="highestTemp.datetime"></app-homepannel>
-            <app-homepannel mainColor="prim-main03" title="當前最低溫度" title02="溫度" [value]="lowestTemp.temp" [county]="lowestTemp.county" [dateTime]="lowestTemp.datetime"></app-homepannel>
-        </div>
-        <div class="col-12 col-lg-6 p-4 d-flex flex-column gap-3">
-            <app-homepannel mainColor="prim-main02" title="當前平均風速" title02="" [value]="averageWindSpeed" county="" dateTime=""></app-homepannel>
-            <app-homepannel mainColor="prim-main01" title="當前最高風速" title02="風速" [value]="highestWind.windspeed" [county]="highestWind.county" [dateTime]="highestWind.datetime"></app-homepannel>
-            <app-homepannel mainColor="prim-main03" title="當前最低風速" title02="風速" [value]="lowestWind.windspeed" [county]="lowestWind.county" [dateTime]="lowestWind.datetime"></app-homepannel>
-        </div>
+    <div *ngIf="isLoading" class="row">
+        <app-loading></app-loading>
+    </div>
+  <div *ngIf="!isLoading" class="row">
+    <div class="col-12 col-lg-6 p-4 d-flex flex-column gap-3">
+      <app-homepannel
+        mainColor="prim-main01"
+        title="當前平均溫度"
+        title02=""
+        [value]="averageTemp"
+        county=""
+        dateTime=""
+      ></app-homepannel>
+      <app-homepannel
+        mainColor="prim-main02"
+        title="當前最高溫度"
+        title02="溫度"
+        [value]="highestTemp.temp"
+        [county]="highestTemp.county"
+        [dateTime]="highestTemp.datetime"
+      ></app-homepannel>
+      <app-homepannel
+        mainColor="prim-main03"
+        title="當前最低溫度"
+        title02="溫度"
+        [value]="lowestTemp.temp"
+        [county]="lowestTemp.county"
+        [dateTime]="lowestTemp.datetime"
+      ></app-homepannel>
+    </div>
+    <div class="col-12 col-lg-6 p-4 d-flex flex-column gap-3">
+      <app-homepannel
+        mainColor="prim-main02"
+        title="當前平均風速"
+        title02=""
+        [value]="averageWindSpeed"
+        county=""
+        dateTime=""
+      ></app-homepannel>
+      <app-homepannel
+        mainColor="prim-main01"
+        title="當前最高風速"
+        title02="風速"
+        [value]="highestWind.windspeed"
+        [county]="highestWind.county"
+        [dateTime]="highestWind.datetime"
+      ></app-homepannel>
+      <app-homepannel
+        mainColor="prim-main03"
+        title="當前最低風速"
+        title02="風速"
+        [value]="lowestWind.windspeed"
+        [county]="lowestWind.county"
+        [dateTime]="lowestWind.datetime"
+      ></app-homepannel>
+    </div>
+  </div>
+</div>
+<div class="container mb-5">
+  <h1>氣象站</h1>
+  <hr />
+</div>
+<div class="container mb-5">
+    <div *ngIf="isLoading" class="row">
+        <app-loading></app-loading>
     </div>
 </div>
-<div class="container mb-5">
-    <h1>氣象站</h1>
-    <hr>
-</div>
-<div class="container mb-5">
-    <app-hometable class="p-0" [calculatedObj]="calculatedObj" [stationCount]="apiData.length"></app-hometable>
+<div *ngIf="!isLoading" class="container mb-5">
+  <app-hometable
+    class="p-0"
+    [calculatedObj]="calculatedObj"
+    [stationCount]="apiData.length"
+  ></app-hometable>
 </div>

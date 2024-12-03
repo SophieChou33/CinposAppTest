@@ -1,13 +1,13 @@
-<div class="row justify-content-between px-5 py-3 header-div">
+<div class="row justify-content-between px-5 py-3 header-div flex-nowrap">
   <div class="col-auto d-flex justify-content-center align-items-center gap-3">
-        <fa-icon type="button" [icon]="faBars" size="2x" class="me-4 d-inline-block">faBars</fa-icon>
+    <app-offcanvas></app-offcanvas>
     <a [routerLink]="['/']">
-      <h2 class="spac-1 d-inline-block text-main-dark">Ze <span class="h2 text-prim-main01">Weather</span>
-         Channel</h2>
+      <h2 class="spac-1 d-inline-block text-main-dark header-text-width">Ze <span class="h2 text-prim-main01 header-text-width">Weather</span>
+        Channel</h2>
     </a>
   </div>
 
-  <div class="col-auto d-flex justify-content-center align-items-center gap-3">
+  <div class="col-auto d-none d-md-flex justify-content-center align-items-center gap-3">
     <a
       (click)="navClick('home')"
       [ngClass]="{ active: activeNav != 'weather' }"

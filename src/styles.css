@@ -1,24 +1,21 @@
 body {
   margin: 0;
+  min-width: 375px;
   /* 全域樣式-變數 */
-  --basic-gray: #616161;
-  --basic-lGray: #afafaf;
-  --prim-mainDark: #0f202e;
-  --prim-main01: #3693de;
-  --prim-main02: hsl(207, 56%, 65%);
-  --prim-main03: #97c0e1;
-  --prim-main04: #dbe7f0;
-  --prim-mainLight: #e7eef3;
-  --sec-mainDark: #392619;
-  --sec-main01: #f0a75f;
-  --sec-main02: #ffe4ce;
-  --other-danger: #ff7b5e;
-  --other-warn: #ffe680;
-  --other-success: #38a965;
-}
-.table-primary{
-  --bs-table-bg: #3693de;
-  --bs-table-color: white;
+  --basic-gray: rgb(97, 97, 97);
+  --basic-lGray: rgb(175, 175, 175);
+  --prim-mainDark: rgb(15, 32, 46);
+  --prim-main01: rgb(4, 147, 222);
+  --prim-main02: rgb(116, 171, 216);
+  --prim-main03: rgb(151, 192, 225);
+  --prim-main04: rgb(219, 231, 240);
+  --prim-mainLight: rgb(231, 238, 243);
+  --sec-mainDark: rgb(57, 38, 25);
+  --sec-main01: rgb(240, 167, 95);
+  --sec-main02: rgb(255, 228, 206);
+  --other-danger: rgb(255, 123, 94);
+  --other-warn: rgb(255, 230, 128);
+  --other-success: rgb(56, 169, 101);
 }
 * {
   /* 文字規範 */
@@ -47,6 +44,9 @@ svg *, .btn *, button *, path *, .fa-icon *, fa-icon *{
 }
 .text-sec-mainDark {
   color: var(--sec-mainDark);
+}
+.text-sec-main01{
+  color: var(--sec-main01);
 }
 .text-basic-lGray {
   color: var(--basic-lGray);
@@ -114,4 +114,90 @@ svg *, .btn *, button *, path *, .fa-icon *, fa-icon *{
 }
 .bg-prim-main04{
   background-color: var(--prim-main04);
+}
+.bg-sec-mainDark{
+  background-color: var(--sec-mainDark);
+}
+.text-bold{
+  font-weight: bold;
+}
+.table-primary{
+  --bs-table-bg: rgb(54, 147, 222);
+  --bs-table-color: rgb(255, 255, 255);
+}
+/* loading 動畫樣式開始 */
+.loading-item svg{
+  animation: loading 2s linear infinite;
+  color: var(--prim-main03);
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+span.loading-text {
+  font-size: 2rem;
+  font-weight: bold;
+  animation: textAni 2s ease-in-out infinite var(--delay);
+  position: relative;
+  transform: translateY(0);
+  display: inline-block;
+  animation-iteration-count: infinite;
+  color: var(--prim-main03);
+}
+span.loading-text:nth-child(1) {
+  --delay: 0s;
+}
+span.loading-text:nth-child(2) {
+  --delay: 0.05s;
+}
+span.loading-text:nth-child(3) {
+  --delay: 0.1s;
+}
+span.loading-text:nth-child(4) {
+  --delay: 0.15s;
+}
+span.loading-text:nth-child(5) {
+  --delay: 0.2s;
+}
+span.loading-text:nth-child(6) {
+  --delay: 0.25s;
+}
+span.loading-text:nth-child(7) {
+  --delay: 0.3s;
+}
+span.loading-text:nth-child(8) {
+  --delay: 0.35s;
+}
+span.loading-text:nth-child(9) {
+  --delay: 0.4s;
+}
+span.loading-text:nth-child(10) {
+  --delay: 0.45s;
+}
+
+@keyframes textAni {
+  0% {
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  90%{
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* loading 動畫樣式結束 */
+
+.hidden{
+  visibility: hidden;
 }

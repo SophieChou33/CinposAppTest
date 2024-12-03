@@ -1,13 +1,22 @@
-
-div a{
-    display: inline-block;
+div a {
+  display: inline-block;
 }
-.header-div{
-    position: fixed;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.377);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 10px 10px 10px #1a1a1a2a;
-    width: 100vw;
+.header-div {
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.377);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0px 10px 10px rgba(26, 26, 26, 0.165);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header-text-width{
+    font-size: 1.8rem;
+}
+@media screen and (max-width: 568px) {
+    .header-text-width{
+        font-size: 1.1rem;
+    }
 }

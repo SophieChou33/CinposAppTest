@@ -17,6 +17,8 @@ export class QueryDatatable implements OnInit {
   dtOptions: Config = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
+  isLoading: boolean=true;
+
   fetchUrl: string = "https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001?Authorization=CWA-3E4E5528-F7D0-4868-BDD0-C0B3F8311F95";
   apiData: TestInterface[] = [];
   filterdApiData: TestInterface[] = [];
@@ -54,6 +56,9 @@ export class QueryDatatable implements OnInit {
       this.apiData = data;
       this.filterdApiData = data;
       this.doFilter();
+      setTimeout(()=>{
+        this.isLoading=false;
+      }, 1000)
     })
     // 取得有氣象站的縣市列表和鄉鎮市區列表(data.countyArr:['','',...]、data.townArr:[{},{},...])
     this.fetchAPIService.countyTownSub.subscribe(data => {
