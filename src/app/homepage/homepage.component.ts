@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchAPIService } from '../fetch-api.service';
+// import { FetchAPIService } from '../fetch-api.service';
 import { TestInterface } from '../test-interface';
+import { FetchAPIService } from '../fetch-api.service';
+// import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
+  // providers: [FetchAPIService]
 })
 export class HomepageComponent implements OnInit {
   // loading
@@ -36,7 +39,8 @@ export class HomepageComponent implements OnInit {
     });
     return formatedTime;
   }
-
+  // constructor(private http: HttpClient){}
+  // fetchAPIService: FetchAPIService = new FetchAPIService(this.http);
   constructor(private fetchAPIService: FetchAPIService) {}
 
   ngOnInit() {

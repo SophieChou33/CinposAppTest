@@ -20,10 +20,12 @@ import { HometableComponent } from './homepage/homeparts/hometable.component';
 import { WeatherErrorPipe } from './minus99check.pipe';
 import { OffcanvasComponent } from './offcanvas/offcanvas.component';
 import { LoadingComponent } from './loading/loading.component';
+import { FetchAPIService } from './fetch-api.service';
 
 @NgModule({
   providers: [
-    provideHttpClient(withFetch(),),
+    provideHttpClient(),
+    FetchAPIService
   ],
   imports: [
     BrowserModule,

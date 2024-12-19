@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { TestInterface } from './test-interface';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FetchAPIService{
   apiDataObservSub= new BehaviorSubject<TestInterface[]>([]);
   countyTownSub=new BehaviorSubject<any>({});
